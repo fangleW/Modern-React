@@ -1,0 +1,45 @@
+{
+  "name": "ModernReact",
+  "version": "0.1.0",
+  "scripts": {
+    "reset": "npx rimraf node_modules ./**/node_modules",
+    "dev": "modern dev",
+    "build": "modern build",
+    "serve": "modern serve",
+    "lint": "biome check",
+    "prepare": "simple-git-hooks"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "npx biome check --files-ignore-unknown=true"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "dependencies": {
+    "@formily/antd-v5": "^1.2.4",
+    "@formily/core": "^2.3.7",
+    "@formily/react": "^2.3.7",
+    "@modern-js/runtime": "3.0.0",
+    "antd": "^6.2.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.0",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@modern-js/app-tools": "3.0.0",
+    "@modern-js/tsconfig": "3.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "lint-staged": "~15.4.0",
+    "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "~5.7.3"
+  }
+}
