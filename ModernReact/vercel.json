@@ -1,12 +1,15 @@
 {
-  "buildCommand": "cd ModernReact && pnpm build",
-  "outputDirectory": "ModernReact/dist",
-  "installCommand": "cd ModernReact && pnpm install",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
   "framework": null,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/html/index/index.html"
     }
   ]
 }
