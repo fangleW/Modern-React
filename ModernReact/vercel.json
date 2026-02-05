@@ -1,7 +1,7 @@
 {
-  "buildCommand": "pnpm build",
-  "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "buildCommand": "cd ModernReact && pnpm build",
+  "outputDirectory": "ModernReact/dist",
+  "installCommand": "cd ModernReact && pnpm install",
   "framework": null,
   "rewrites": [
     {
