@@ -45,17 +45,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      # 6. 安装依赖
+      # 6. 配置 npm registry（使用公共源）
+      - name: Configure npm registry
+        run: pnpm config set registry https://registry.npmjs.org/
+        working-directory: ./ModernReact
+
+      # 7. 安装依赖
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: ./ModernReact
 
-      # 7. 构建项目
+      # 8. 构建项目
       - name: Build project
         run: pnpm build
         working-directory: ./ModernReact
 
-      # 8. 部署到 Vercel (生产环境)
+      # 9. 部署到 Vercel (生产环境)
       - name: Deploy to Vercel (Production)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: amondnet/vercel-action@v25
@@ -66,7 +71,7 @@ jobs:
           vercel-args: '--prod'
           working-directory: ./ModernReact
 
-      # 9. 部署到 Vercel (预览环境)
+      # 10. 部署到 Vercel (预览环境)
       - name: Deploy to Vercel (Preview)
         if: github.event_name == 'pull_request'
         uses: amondnet/vercel-action@v25
