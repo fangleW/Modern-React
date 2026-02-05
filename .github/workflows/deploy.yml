@@ -45,14 +45,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      # 6. 配置 npm registry（使用公共源）
-      - name: Configure npm registry
-        run: pnpm config set registry https://registry.npmjs.org/
+      # 6. 删除旧的 lockfile 和配置公共源
+      - name: Configure npm registry and clean lockfile
+        run: |
+          rm -f pnpm-lock.yaml
+          echo "registry=https://registry.npmjs.org/" > .npmrc
         working-directory: ./ModernReact
 
-      # 7. 安装依赖
+      # 7. 安装依赖（不使用 frozen-lockfile，让 pnpm 从公共源重新解析）
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
         working-directory: ./ModernReact
 
       # 8. 构建项目
