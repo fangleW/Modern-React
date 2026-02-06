@@ -17,7 +17,7 @@ export const routeConfig: RouteConfig[] = [
   {
     path: "/formily",
     label: "Formily表单",
-    
+
     children: [
       {
         path: "/formily/basic",
@@ -29,22 +29,6 @@ export const routeConfig: RouteConfig[] = [
     path: "/about",
     label: "关于",
   },
-  // 示例：添加更多路由
-  // 当你在 src/routes 创建新的页面后，在这里添加对应的配置即可
-  // {
-  //   path: '/products',
-  //   label: '产品',
-  //   children: [
-  //     {
-  //       path: '/products/list',
-  //       label: '产品列表',
-  //     },
-  //     {
-  //       path: '/products/detail',
-  //       label: '产品详情',
-  //     },
-  //   ],
-  // },
 ];
 
 // 将路由配置转换为 antd Menu 所需的格式
